@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PARA MEU AMORZINHO</title>
+</head>
+<body style="margin:0;">
+
+<div style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://media.discordapp.net/attachments/1481229801997074505/1482500718438121472/baixados.gif?ex=69b72de2&is=69b5dc62&hm=c1374fe4ca1ccfb5a48edcf747df94587def709c733d13557c87d18ee58d0051&==') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+"></div>
+
+<div style="
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+  font-family: Arial, sans-serif;
+">
+
+<h1 style="color: rgb(255, 155, 230); font-weight: 900; margin: 0;">
+EU TE AMO MUITO, ANA
+</h1>
+
+<div style="
+margin-top:30px;
+padding:15px 25px;
+border:3px solid #ff9fdf;
+border-radius:15px;
+color:#ff9fdf;
+font-weight:bold;
+font-size:18px;
+background:rgba(0,0,0,0.25);
+max-width:500px;
+text-align:center;
+">
+OEOEOE AMOR EU TE AMO MT SABIA, DEI MEU MELHOR PARA FAZER ISSO, ESPERO QUE GOSTE. EU VACILEI COM VOCÊ E ME ARREPENDO MUITO. EU QUERO MUDAR POR NÓS, EU TE AMO MT SABIA MTMT MESMO, POR MAS QUE NÃO SE CONHECEMOS A MUITO TEMPO EU QUERO VOCÊ PARA SEMPRE!!!, ACEITA NAMORAR COMIGO?
+</div>
+
+<!-- BOTÕES ADICIONADOS -->
+<div style="margin-top:15px; display:flex; gap:15px; justify-content:center;">
+
+<button onclick="aceitou()" style="
+border:2px solid #ff9fdf;
+color:#ff9fdf;
+background:transparent;
+padding:8px 20px;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+">
+SIM
+</button>
+
+<button id="naoBtn" onmouseover="fugir()" style="
+border:2px solid #ff9fdf;
+color:#ff9fdf;
+background:transparent;
+padding:8px 20px;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+position:relative;
+">
+NÃO
+</button>
+
+</div>
+
+<p style="color: rgb(255, 255, 255); font-size: 18px; margin: 5px 0 40px 0;"></p>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 240px;">
+    
+<img src="https://media.discordapp.net/attachments/1481229801997074505/1482498315848253491/4b845690-9dfa-4a0d-859d-9751a0d1f4ab.png?ex=69b72ba5&is=69b5da25&hm=f614a60d0ef90ec8584fb14ae61df4aa8b75f26160f8f9e91fff16ca79851788&=&format=webp&quality=lossless&width=676&height=901" width="200">
+
+<img src="https://media.discordapp.net/attachments/1481229801997074505/1482498367132139520/image.png?ex=69b72bb2&is=69b5da32&hm=e596dc87dfe32f70a101bb0bc650aca0db68c0e825d8b8bebbfafef52cae5c80&=&format=webp&quality=lossless" width="200">
+
+</div>
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:15px; margin-top:20px;">
+      
+<button id="playBtn" style="
+border:2px solid #fdb0e3;
+color:#fda8e1;
+padding:6px 16px;
+border-radius:20px;
+background:transparent;
+font-weight:bold;
+cursor:pointer;
+">Pausar</button>
+
+<div id="progress-container" style="
+width:300px;
+height:8px;
+background:rgba(255,255,255,0.3);
+border-radius:4px;
+margin-top:10px;
+cursor:pointer;
+">
+<div id="progress" style="
+height:100%;
+width:0%;
+background:#ff9fdf;
+border-radius:4px;
+"></div>
+</div>
+
+</div>
+
+</div>
+
+<audio id="audio" autoplay loop>
+<source src="https://cdn.discordapp.com/attachments/1481229801997074505/1482499201664553103/musicafundo.mp3?ex=69b72c79&is=69b5daf9&hm=f94515822ec197b27619b66d2097ab1167d839436f08a92e73f33a5134c89015&" type="audio/mpeg" />
+</audio>
+
+<script>
+const audio = document.getElementById("audio");
+const playBtn = document.getElementById("playBtn");
+const progress = document.getElementById("progress");
+const container = document.getElementById("progress-container");
+
+playBtn.onclick = () => {
+if (audio.paused) {
+audio.play();
+playBtn.innerText = "Pausar";
+} else {
+audio.pause();
+playBtn.innerText = "Reproduzir";
+}
+};
+
+audio.addEventListener("timeupdate", () => {
+const percent = (audio.currentTime / audio.duration) * 100;
+progress.style.width = percent + "%";
+});
+
+container.addEventListener("click", (e) => {
+const rect = container.getBoundingClientRect();
+const clickX = e.clientX - rect.left;
+const newTime = (clickX / rect.width) * audio.duration;
+audio.currentTime = newTime;
+});
+
+function fugir(){
+const btn = document.getElementById("naoBtn");
+btn.style.position = "absolute";
+btn.style.left = Math.random() * window.innerWidth + "px";
+btn.style.top = Math.random() * window.innerHeight + "px";
+}
+
+function aceitou(){
+alert("EBAAA AMOR, SABIA QUEVOCE IA ACEITAR SABIA EU TE AMO MUITO");
+
+for(let i=0;i<40;i++){
+criarCoracao();
+}
+}
+
+function criarCoracao(){
+const heart = document.createElement("div");
+heart.innerHTML = "💗";
+
+heart.style.position = "fixed";
+heart.style.left = Math.random() * window.innerWidth + "px";
+heart.style.top = "-20px";
+heart.style.fontSize = "24px";
+heart.style.animation = "cair 4s linear";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},4000);
+}
+</script>
+
+<style>
+@keyframes cair{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+</style>
+
+</body>
+</html>
